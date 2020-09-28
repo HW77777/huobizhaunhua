@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.nfc.Tag;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 
@@ -21,6 +22,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.amenu,menu);
+        return true;
     }
     public void Button2(View view){
         EditText tx= findViewById(R.id.EditText);
@@ -46,6 +53,17 @@ public class MainActivity extends AppCompatActivity {
          next.putExtra("美元",dollor);
          next.putExtra("英镑",yin);
          next.putExtra("欧元",euro);
-        startActivity(next);
+        startActivityForResult(next,1);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode,int resultCode,Intent data) {
+
+        if (requestCode == 1 && resultCode == 2) {
+            dollor= data.getDoubleExtra("美元",0.0);
+            yin=data.getDoubleExtra("英镑",0.0);
+            euro=data.getDoubleExtra("欧元",0.0);
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }

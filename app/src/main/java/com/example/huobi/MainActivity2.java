@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.EditText;
 
 public class MainActivity2 extends AppCompatActivity {
@@ -20,7 +21,21 @@ public class MainActivity2 extends AppCompatActivity {
         EditText tx=findViewById(R.id.editText);
         EditText tx2=findViewById(R.id.editText2);
         EditText tx3=findViewById(R.id.editText3);
-        tx.setText("dollor:"+a);tx2.setText("yin:"+b);tx3.setText("euro"+c);
+        tx.setText(String.valueOf(a));tx2.setText(String.valueOf(b));tx3.setText(String.valueOf(c));
+    }
+    public void Button5(View view){
+        Intent data=getIntent();
+        EditText tx=findViewById(R.id.editText);
+        EditText tx2=findViewById(R.id.editText2);
+        EditText tx3=findViewById(R.id.editText3);
+        Double dollor=Double.valueOf(tx.getText().toString());
+        Double yin=Double.valueOf(tx2.getText().toString());
+        Double euro=Double.valueOf(tx3.getText().toString());
+        data.putExtra("美元",dollor);
+        data.putExtra("英镑",yin);
+        data.putExtra("欧元",euro);
+        setResult(2,data);
+        finish();
     }
 
 }
