@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">huobi</string>
+    <string name="EditText">input your RMB</string>
+    <string name="Button">美元</string>
+    <string name="Button2">英镑</string>
+    <string name="Button3">欧元</string>
+    <string name="Button4">config</string>
+    <string name="Button5">save</string>
+</resources>
