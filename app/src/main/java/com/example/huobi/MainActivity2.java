@@ -15,9 +15,9 @@ public class MainActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         Intent intent=getIntent();
-        Double a=intent.getDoubleExtra("美元",0.0);
-        Double b=intent.getDoubleExtra("英镑",0.0);
-        Double c=intent.getDoubleExtra("欧元",0.0);
+        Float a=intent.getFloatExtra("美元",0.0f);
+        Float b=intent.getFloatExtra("英镑",0.0f);
+        Float c=intent.getFloatExtra("欧元",0.0f);
         EditText tx=findViewById(R.id.editText);
         EditText tx2=findViewById(R.id.editText2);
         EditText tx3=findViewById(R.id.editText3);
@@ -28,9 +28,9 @@ public class MainActivity2 extends AppCompatActivity {
         EditText tx=findViewById(R.id.editText);
         EditText tx2=findViewById(R.id.editText2);
         EditText tx3=findViewById(R.id.editText3);
-        Double dollor=Double.valueOf(tx.getText().toString());
-        Double yin=Double.valueOf(tx2.getText().toString());
-        Double euro=Double.valueOf(tx3.getText().toString());
+        Float dollor=Float.valueOf(tx.getText().toString());
+        Float yin=Float.valueOf(tx2.getText().toString());
+        Float euro=Float.valueOf(tx3.getText().toString());
         data.putExtra("美元",dollor);
         data.putExtra("英镑",yin);
         data.putExtra("欧元",euro);
